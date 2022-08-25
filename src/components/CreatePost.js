@@ -1,6 +1,19 @@
 // import { useState } from "react";
 import { firestore } from "../firebase";
 import { useFromInput } from "./hooks";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  height: 33px;
+  // background: red;
+  background: ${(props) => (props.primary ? "red" : "blue")};
+  border: 0;
+  color: #fff;
+  padding: 8px;
+  font-size: 15px;
+  border-radius: 3px;
+  cursor: pointer;
+`;
 
 function CreatePost() {
   const title = useFromInput("");
@@ -39,7 +52,7 @@ function CreatePost() {
           <textarea {...content}></textarea>
         </div>
 
-        <button className="create-post-btn">Create Post</button>
+        <StyledButton primary>Create Post</StyledButton>
       </form>
     </div>
   );
